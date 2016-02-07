@@ -29,7 +29,7 @@ def turn_on_at_sunset():
 	schedule.every().day.at(turnOnTime.strftime("%H:%M")).do(turn_on_lamps_once)
 
 def turn_off_lamps():
-	switch_on(1)
+	switch_off(1)
 
 def turn_on_lamps_once():
 	switch_on(1)
