@@ -15,7 +15,7 @@ def turn_on_at_sunset():
 
 	dtnow = datetime.now()
 
-	onAfter = datetime(dtnow.year, dtnow.month, dtnow.day, 17, 0, 0, 0)
+	onAfter = datetime(dtnow.year, dtnow.month, dtnow.day, 18, 10, 0, 0)
 
 	sunset = ephem.localtime(o.next_setting(s));
 
@@ -31,6 +31,9 @@ def turn_on_at_sunset():
 def turn_off_lamps():
 	switch_off(1)
 
+def turn_on_lamps():
+	switch_off(1)
+
 def turn_on_lamps_once():
 	switch_on(1)
 	return schedule.CancelJob
@@ -38,7 +41,9 @@ def turn_on_lamps_once():
 turn_on_at_sunset();
 
 schedule.every().day.at('22:45').do(turn_off_lamps)
-schedule.every().day.at('7:45').do(turn_on_at_sunset)
+schedule.every().day.at('9:45').do(turn_on_at_sunset)
+schedule.every().day.at('7:15').do(turn_on_lamps)
+schedule.every().day.at('8:00').do(turn_on_lamps)
 
 while 1:
     schedule.run_pending()
