@@ -40,7 +40,7 @@ def turn_on_lamps_once():
 
 turn_on_at_sunset();
 
-schedule.every().day.at('22:45').do(turn_off_lamps)
+schedule.every().day.at('23:15').do(turn_off_lamps)
 schedule.every().day.at('9:45').do(turn_on_at_sunset)
 schedule.every().day.at('7:15').do(turn_on_lamps)
 schedule.every().day.at('8:00').do(turn_on_lamps)
